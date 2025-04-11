@@ -24,6 +24,7 @@ public class FamilyTreeController : ControllerBase
         var relationships = await _context.Relationships.ToListAsync();
 
         return Ok(new { members, relationships });
+
     }
     //[HttpGet]
     //public async Task<ActionResult<object>> GetFamilyTreeData()
