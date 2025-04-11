@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34601.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyTreeWebAPI", "FamilyTreeWebAPI\FamilyTreeWebAPI.csproj", "{FF4395CB-2E1E-4EF3-825E-234542264680}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF4395CB-2E1E-4EF3-825E-234542264680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF4395CB-2E1E-4EF3-825E-234542264680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF4395CB-2E1E-4EF3-825E-234542264680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF4395CB-2E1E-4EF3-825E-234542264680}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B37D9129-95F3-4F57-881E-30EEF117895C}
+	EndGlobalSection
+EndGlobal
