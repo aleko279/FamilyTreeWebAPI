@@ -1,8 +1,11 @@
-using FamilyTreeWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using Newtonsoft.Json;
-using FamilyTreeWebAPI.Services;
+using FamilyTreeWebAPI.Infrastructure.Data;
+using FamilyTreeWebAPI.Application.Services;
+using FamilyTreeWebAPI.Core.Interfaces;
+using FamilyTreeWebAPI.Infrastructure.Data.Repositories;
+using FamilyTreeWebAPI.Application.Mappings;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add database context
@@ -19,7 +22,8 @@ builder.Services.AddSwaggerGen();
 //);
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
-    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+    //options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+    options.JsonSerializerOptions.ReferenceHandler = null;
     options.JsonSerializerOptions.MaxDepth = 32; // You can adjust this value if needed
 });
 // Add services to the container
@@ -32,7 +36,12 @@ builder.Services.AddCors(options =>
               .AllowAnyHeader();
     });
 });
-builder.Services.AddScoped<FamilyTreeService>();
+builder.Services.AddScoped<IFamilyTreeRepository, FamilyTreeRepository>();
+builder.Services.AddScoped<IFamilyTreeService, FamilyTreeService>();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+builder.Services.AddDbContext<FamilyTreeContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("FamilyTreeConnection")));
 
 var app = builder.Build();
 
